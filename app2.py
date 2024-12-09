@@ -11,7 +11,7 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
     # Imagen de fondo con encabezado
     html.Div(
         style={
-            "background-image": "url('Screen Shot 2024-12-09 at 12.18.23 PM.png')",  # Cambia esta URL a la ubicación pública de tu imagen
+            "background-image": "url('Screen Shot 2024-12-09 at 3.53.28 PM.png')",  # Cambia esta URL a la ubicación pública de tu imagen
             "background-size": "cover",
             "background-position": "center",
             "height": "600px",
