@@ -11,7 +11,7 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
     # Imagen de fondo con encabezado
     html.Div(
         style={
-            "background-image": "url('Screen Shot 2024-12-09 at 3.53.28 PM.png')",  # Cambia esta URL a la ubicación pública de tu imagen
+            "background-image": "url('assets/assets')",  # Ruta a la imagen en la carpeta 'assets'
             "background-size": "cover",
             "background-position": "center",
             "height": "600px",
@@ -57,4 +57,12 @@ server = app.server
 # Ejecutar la aplicación
 if __name__ == '__main__':
     app.run_server(debug=True, port=8070)
+
+
+
+
+
+
+
+
 
