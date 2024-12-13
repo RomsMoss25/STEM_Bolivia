@@ -42,8 +42,8 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
                 html.Div([
                     html.H4("Descubre nuestra página web principal", className="text-center text-primary mb-3"),
                     html.P(
-                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia, aquí encontrarás acceso a dos secciones especiales"
-                        "una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones,"
+                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia, aquí encontrarás acceso a dos secciones especiales "
+                        "una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones, "
                         "trabajos académicos y más contribuciones de mujeres en STEM. ¡Explora y sé parte del cambio!",
                         style={"font-size": "16px", "text-align": "center", "line-height": "1.8"}
                     ),
@@ -53,11 +53,30 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
     ], style={"background-color": "#f8f9fa", "padding": "40px 20px"})
 ])
 
+# Página secundaria con icono de casita
+secondary_page_layout = dbc.Container(fluid=True, children=[
+    dbc.Row([
+        dbc.Col([
+            dbc.Button(
+                html.Span("🏠 Volver al Inicio", style={"margin-left": "5px"}),
+                href="/",  # Enlace al inicio
+                color="light",
+                className="mt-3"
+            )
+        ], width="auto")
+    ], justify="start"),
+    html.Div([
+        html.H2("Contenido de la página secundaria"),
+        html.P("Aquí puedes explorar detalles adicionales.")
+    ])
+])
+
 server = app.server
 
 # Ejecutar la aplicación
 if __name__ == '__main__':
     app.run_server(debug=True, port=8070)
+
 
 
 
