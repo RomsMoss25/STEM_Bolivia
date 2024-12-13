@@ -7,9 +7,11 @@ from dash.dependencies import Input, Output
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 app.title = "Inicio - Mujeres STEM en Bolivia"
 
+# Exportar el servidor WSGI para Gunicorn
+server = app.server
+
 # Layout de la página de inicio
 inicio_layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
-    # Imagen de fondo con encabezado
     html.Div(
         style={
             "background-image": "url('assets/assets')",  # Ruta a la imagen en la carpeta 'assets'
