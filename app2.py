@@ -40,10 +40,11 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
         dbc.Row([
             dbc.Col([
                 html.Div([
-                    html.H4("¿Qué encontrarás aquí?", className="text-center text-primary mb-3"),
+                    html.H4("Descubre nuestra página web principal", className="text-center text-primary mb-3"),
                     html.P(
-                        "Este dashboard central te permite descubrir proyectos destacados, explorar el mapa interactivo "
-                        "y conocer más sobre las mujeres STEM en Bolivia que están cambiando el mundo.",
+                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia. Aquí encontrarás acceso a dos secciones especiales: 
+                        una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones,
+                        trabajos académicos y más contribuciones de mujeres en STEM. ¡Explora y sé parte del cambio!",
                         style={"font-size": "16px", "text-align": "center", "line-height": "1.8"}
                     ),
                 ])
