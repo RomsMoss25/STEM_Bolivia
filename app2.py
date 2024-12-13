@@ -42,9 +42,10 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
                 html.Div([
                     html.H4("Descubre nuestra página web principal", className="text-center text-primary mb-3"),
                     html.P(
-                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia. Aquí encontrarás acceso a dos secciones especiales: 
-                        una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones,
-                        trabajos académicos y más contribuciones de mujeres en STEM. ¡Explora y sé parte del cambio!",
+                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia". 
+                        "Aquí encontrarás acceso a dos secciones especiales:"
+                        "una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones,"
+                        "trabajos académicos y más contribuciones de mujeres en STEM. ¡Explora y sé parte del cambio!",
                         style={"font-size": "16px", "text-align": "center", "line-height": "1.8"}
                     ),
                 ])
