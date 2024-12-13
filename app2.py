@@ -1,13 +1,14 @@
 import dash
 from dash import dcc, html
 import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output
 
 # Crear la aplicación principal de Dash
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
 app.title = "Inicio - Mujeres STEM en Bolivia"
 
 # Layout de la página de inicio
-app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
+inicio_layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
     # Imagen de fondo con encabezado
     html.Div(
         style={
@@ -29,53 +30,34 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
                 style={"font-size": "20px", "text-shadow": "1px 1px 3px rgba(0,0,0,0.6)"}
             ),
             html.Div([
-                dbc.Button("Explorar Proyectos", href="https://papers-bolivia.onrender.com/", color="primary", className="me-3", size="lg"),
-                dbc.Button("Ver Mapa Interactivo", href="https://mujeres-stem-bolivia-1.onrender.com", color="success", size="lg")
+                dbc.Button("Explorar Proyectos", href="/pagina2", color="primary", className="me-3", size="lg"),
+                dbc.Button("Ver Mapa Interactivo", href="/pagina3", color="success", size="lg")
             ], className="mt-3")
         ]
-    ),
-
-    # Sección de información destacada
-    dbc.Container([
-        dbc.Row([
-            dbc.Col([
-                html.Div([
-                    html.H4("Descubre nuestra página web principal", className="text-center text-primary mb-3"),
-                    html.P(
-                        "Un espacio dedicado a resaltar el impacto de las mujeres en STEM en Bolivia, aquí encontrarás acceso a dos secciones especiales "
-                        "una sobre las mujeres STEM en Bolivia y otra que reúne investigaciones, "
-                        "trabajos académicos y más contribuciones de mujeres en STEM. ¡Explora y sé parte del cambio!",
-                        style={"font-size": "16px", "text-align": "center", "line-height": "1.8"}
-                    ),
-                ])
-            ], width=12),
-        ])
-    ], style={"background-color": "#f8f9fa", "padding": "40px 20px"})
+    )
 ])
 
-# Página secundaria con icono de casita
-secondary_page_layout = dbc.Container(fluid=True, children=[
-    dbc.Row([
-        dbc.Col([
-            dbc.Button(
-                html.Span("🏠 Volver al Inicio", style={"margin-left": "5px"}),
-                href="/",  # Enlace al inicio
-                color="light",
-                className="mt-3"
-            )
-        ], width="auto")
-    ], justify="start"),
-    html.Div([
-        html.H2("Contenido de la página secundaria"),
-        html.P("Aquí puedes explorar detalles adicionales.")
-    ])
+# Definir el layout principal con rutas
+app.layout = html.Div([
+    dcc.Location(id="url", refresh=False),
+    html.Div(id="page-content")
 ])
 
-server = app.server
+# Callback para manejar las rutas
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+def display_page(pathname):
+    if pathname == "/pagina2":
+        from pagina2 import layout as pagina2_layout
+        return pagina2_layout
+    elif pathname == "/pagina3":
+        from pagina3 import layout as pagina3_layout
+        return pagina3_layout
+    else:
+        return inicio_layout
 
-# Ejecutar la aplicación
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8070)
+    app.run_server(debug=True, port=8050)
+
 
 
 
