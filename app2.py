@@ -30,7 +30,7 @@ app.layout = dbc.Container(fluid=True, style={"padding": "0"}, children=[
             ),
             html.Div([
                 dbc.Button("Explorar Proyectos", href="https://papers-bolivia.onrender.com/", color="primary", className="me-3", size="lg"),
-                dbc.Button("Ver Mapa Interactivo", href="https://mujeres-stem-bolivia-1.onrender.com", color="success", size="lg")
+                dbc.Button("Ver Mapa Interactivo", href="https://mujeres-stem-bolivia-quag.onrender.com", color="success", size="lg")
             ], className="mt-3")
         ]
     ),
